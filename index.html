@@ -1,0 +1,57 @@
+<html>
+<head>
+	<title> Food You Like Application by Sanskar </title>
+	<style>
+		* { font-size : 40px ; }
+		body { background-color : #F7BF6F ; }
+		h1 { background-color : #F7886F ; color : white ; border-radius : 30%; width : 520px ; }
+		input[type = "radio"] { width : 2% ;height : 0.5em; }
+	</style> 
+</head>
+<body>
+<center>
+<h1> Food Selection Application </h1>
+	<form onsubmit = "show()">
+		<input type = "text"  placeholder = "Enter Your Name"  id = "name"  />
+		<br/> <br/>
+		<input type = "radio"   name = "f" id = "si" checked = true  /> South Indian
+		<input type = "radio" name = "f" id = "ni"  />North Indian
+		<input type = "radio" name = "f" id = "ff" />Fast Food
+		<br/> <br/>
+		<input type = "submit" style = "color : black ;  background-color : #F7F36F ; border-radius : 30px ; width : 250px ;"/>
+	</form>
+	<h2 id = "msg" />
+	<script>
+		function show()
+		{
+			event.preventDefault();
+			let name = document.getElementById("name");
+			let ni = document.getElementById("ni");
+			let si = document.getElementById("si");
+			let ff = document.getElementById("ff");
+			let msg = document.getElementById("msg");
+
+			if (name.value.trim() == "")
+			{
+				alert("Enter name");
+				msg.innerHTML = "";
+				name.value = "";
+				name.focus();
+				return ;
+			}
+
+			let choice = "";
+			if (ni.checked)		choice = "North Indian";
+			if (si.checked)		choice = "South Indian";
+			if (ff.checked)		choice = "Fast Food";
+
+			let ans = "Name = " + name.value + " , " +  " Choice = " + choice ; 
+			msg.innerHTML = ans ; 
+
+		
+
+		}
+	</script>
+</center>
+</body>
+</html>
